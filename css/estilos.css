@@ -1,0 +1,23 @@
+
+.first { 
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.last {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+#content-container span, #content-container p  {
+	font-size: 24px;
+}
+
+.panel-heading {
+	background-color: rgb(255,182,2);
+}
+
+
+#reporte-emailing-section, #reporte-comercial-section, #reporte-quincenal-section, #reporte-personalizado-section  { display: none; }
+
+#container-rw-history-week { width: 80%; }

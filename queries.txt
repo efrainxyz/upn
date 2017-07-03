@@ -1,0 +1,75 @@
+SELECT * FROM upnregistrosweb.rw_data;
+
+truncate upnregistrosweb.rw_data;
+
+
+select INTERESADOEN,SEDE,DNI,NOMBRES,APELLIDOS,EMAIL,TELEFONO,CELULAR,CAMPANA,FECHA,TIPOUSUARIO
+from upnregistrosweb.rw_data
+where TIPORW = 'C' and fecha between '16-03-2015' and '31-03-2015'
+order by @date desc;
+
+SELECT * FROM `upnregistrosweb`.`rw_data`;
+
+
+select INTERESADOEN, count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where INTERESADOEN = 'EPEC';
+
+select INTERESADOEN, count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where INTERESADOEN = 'PG';
+
+select INTERESADOEN, count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where INTERESADOEN = 'WA';
+
+select SEMANA,count(DNI) as NUM_RW
+from upnregistrosweb.rw_data
+where TIPORW = 'C' and SEMANA > 34
+group by SEMANA;
+
+select SEDE, count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where FECHA = '2015-09-06' and TIPORW = 'C'
+group by SEDE;
+
+select FECHA, count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where FECHA = '2015-09-06' and TIPORW = 'C'
+
+select count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where FECHA between '2015-09-07' and '2015-09-13'
+
+select count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where FECHA between '2015-09-01' and '2015-09-15' and SEDE like '%C' and TIPORW = 'NC';
+
+select PRIMERAINTERACCION, count(DNI) as TOTAL
+from upnregistrosweb.rw_data
+where TIPORW = 'NC' and fecha between '2015-10-16' and '2015-10-31'
+group by PRIMERAINTERACCION;
+
+select case SEDE
+when 'UPNLN' then 'Los Olivos'
+
+when 'WALN' then 'Los Olivos'
+when 'UPNLC' then 'Breña'
+when 'WALC' then 'Breña'
+when 'UPNLE' then 'SJL'
+when 'WALE' then 'SJL'
+when 'UPNCO' then 'Comas'
+when 'WACO' then 'Comas'
+when 'UPNT' then 'Trujillo'
+when 'WAT' then 'Trujillo'
+when 'UPNC' then 'Cajamarca'
+when 'WAC' then 'Cajamarca'
+end as CAMPUS, count(DNI) as TOTAL
+
+from rw_data
+
+where TIPOUSUARIO in ('N','R') and FECHA between '01/01/2017' and '23/04/2017'
+
+group by CAMPUS
+
+order by CAMPUS;
